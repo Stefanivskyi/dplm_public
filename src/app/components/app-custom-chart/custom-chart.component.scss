@@ -1,0 +1,56 @@
+
+.delete-btn {
+    width: 150px;
+    margin: 25px 35px 25px 0;
+    color: #813838;
+    background-color: #fdd6d6;
+    border: 1px solid rgba(0,0,0,.125);
+}
+
+.delete-btn:hover, .delete-btn:active {
+    outline: !important none;
+    border: 1px solid rgba(0,0,0,.125);
+    color: #813838;
+    background-color: #fcbebe;
+}
+
+.delete-btn-area {
+    background-color: #ffffff;
+    width: 100%;
+    text-align: right;
+    margin-top: -25px;
+    margin-bottom: 25px;
+    border: 1px solid #c2cfd6;
+    border-radius: 0.25rem;
+}
+
+.add-save-btn-area {
+    background-color: #ffffff;
+    width: 100%;
+    height: 85px;
+    // text-align: right;
+    margin-top: -25px;
+    margin-bottom: 25px;
+    border: 1px solid #c2cfd6;
+    border-radius: 0.25rem;
+}
+
+.add-save-btn-area button.btn.add-sensor-btn {
+    // text-align: right;
+}
+
+.save-btn {
+    width: 150px;
+    margin: 25px 35px 25px 25px;
+    color: #28623c;
+    background-color: #cdedd8;
+    border: 1px solid rgba(0,0,0,.125);
+    float: right;
+}
+
+.save-btn:hover, .save-btn:active {
+    outline: !important none;
+    border: 1px solid rgba(0,0,0,.125);
+    color: #28623c;
+    background-color: #bae6c9;
+}
