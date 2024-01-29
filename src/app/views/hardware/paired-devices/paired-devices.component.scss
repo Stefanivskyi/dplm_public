@@ -1,0 +1,48 @@
+.search{
+    width: 100%;
+    padding: 5px 5px 7px 7px;
+}
+
+.my-table {
+    width: 95%;
+    margin-left: 5%;
+    background-color: #ffffff;
+}
+
+.table tbody tr td {
+    cursor: pointer;
+}
+
+.table th, .table td {
+    border-top: none;
+}
+
+.table-header {
+    font-weight: bold;
+    padding: 0.75rem;
+    border-top: 1px solid #a4b7c1;
+    border-bottom: 2px solid #a4b7c1;
+}
+
+.cc-table div.bt {
+    padding: 0.75rem;
+    border-top: 1px solid #a4b7c1;
+    cursor: pointer;
+}
+
+.sc-table-head {
+    cursor: default;
+}
+
+.static {
+    display: none;
+}
+
+.activeLine{
+    background-color: #e0e7eb;
+  }
+
+  .staticLine {
+    background-color: #ffffff;
+  }
+

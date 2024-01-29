@@ -1,0 +1,82 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+
+      <div class="card-header">
+        <input [(ngModel)]="searchText" placeholder="search text goes here" class="search">
+      </div>
+
+      <div class="card-body">
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>chipID</th>
+              <th>Project</th>
+              <th>Status</th>
+              <th>Sensor Connects</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let cc of ccData | filter: searchText">
+            <tr (click)="clickEventCC(cc)" [ngClass]="cc.isSelected ? 'activeLine' : 'staticLine'">
+              <td>{{cc.name}}</td>
+              <td>{{cc.id}}</td>
+              <td>Project name</td>
+              <td>ok</td>
+              <td>{{cc.sensorConnects.length}}</td>
+            </tr>
+
+            <tr [ngClass]="cc.showSC ? 'active' : 'static'">
+              <td colspan="5">
+                <table class="table my-table">
+                  <thead class="sc-table-head">
+                    <tr>
+                      <th>Name</th>
+                      <th>ID</th>
+                      <th>Sensors</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let sc of cc.sensorConnects">
+                    <tr (click)="clickEventSC(sc)" [ngClass]="sc.isSelected ? 'activeLine' : 'staticLine'">
+                      <td>{{sc.name}}</td>
+                      <td>{{sc.id}}</td>
+                      <td>{{sc.inputs.length}}</td>
+                      <td>ok</td>
+                    </tr>
+
+                    <tr [ngClass]="sc.showSensor ? 'active' : 'static'">
+                      <td colspan="5">
+                        <table class="table my-table">
+                          <thead class="sc-table-head">
+                            <tr>
+                              <th>Name</th>
+                              <th>Sensor reading</th>
+                              <th>Status</th>
+                            </tr>
+                          </thead>
+                          <tbody *ngFor="let sensor of sc.inputs">
+                            <tr id="sensor" (click)="clickEventSensor(sensor)">
+                              <td>{{sensor.getName()}}</td>
+                              <td>ready</td>
+                              <td>ok</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+</div>
