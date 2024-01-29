@@ -1,0 +1,36 @@
+
+    <div class="float-right" id="channel-div">
+        <select #channelElement class="btn btn-outline-secondary" id="select-channel" (change)="selectChannel(channelElement.value)">
+            <option *ngFor="let channel of channels" >
+                {{channel.index}}
+            </option>
+        </select>
+    </div>
+
+    <div class="btn-group btn-group-toggle float-right mr-3" data-toggle="buttons" role="group">
+        <div class="btn btn-outline-secondary form-control" name="period" (click)='min5Period(); activeIndex = 10'
+            btnRadio="Min5" id="option0" [ngClass]="{ activePeriod : activeIndex === 10 }">5min</div>
+
+        <div class="btn btn-outline-secondary form-control activePeriod" name="period" (click)='hourPeriod(); activeIndex = 1'
+            btnRadio="Hour" id="option2" [ngClass]="{ activePeriod : activeIndex === 1 }">1H</div>
+
+        <div class="btn btn-outline-secondary form-control" name="period" (click)='dayPeriod(); activeIndex = 2'
+            btnRadio="Day" id="option3" [ngClass]="{ activePeriod : activeIndex === 2 }">24H</div>
+
+        <div class="btn btn-outline-secondary form-control" name="period" (click)='weekPeriod(); activeIndex = 3'
+            btnRadio="Week" id="option4" [ngClass]="{ activePeriod : activeIndex === 3 }">Week</div>
+
+        <div class="btn btn-outline-secondary form-control" name="period" (click)='monthPeriod(); activeIndex = 4'
+            btnRadio="Month" id="option5" [ngClass]="{ activePeriod : activeIndex === 4 }">Month</div>
+    </div>
+
+    <div class="divider float-right"></div>
+
+    <div class="btn btn-outline-secondary float-right" (click)='realtimeClicked();' id="realtime-div"
+        [ngClass]="{
+            'realtime-on': isRealtimeActive === true,
+            'realtime-off': isRealtimeActive === false
+        }">
+        <i id="play-button" class="fa fa-gear fa-spin" *ngIf="isRealtimeActive"></i>
+        Live
+    </div>

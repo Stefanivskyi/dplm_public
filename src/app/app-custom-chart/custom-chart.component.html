@@ -1,0 +1,65 @@
+<div *ngFor='let chart of customChartProjects'>
+    <app-chart [sensor]='chart.standardSensors' [customChartName]='chart.name'></app-chart>
+
+    <div class="delete-btn-area">
+        <button type="submit" (click)="deleteModal.show()" class="btn delete-btn" data-toggle="modal">
+            Delete
+        </button>
+    </div>
+    <form>
+        <div bsModal #deleteModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Delete chart?</h4>
+                        <button type="button" class="close" (click)="deleteModal.hide()" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        This operation cannot be undone!
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" (click)="deleteCustomChart(chart.name)">Yes</button>
+                        <button class="btn btn-secondary" (click)="deleteModal.hide()">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+<app-chart [sensor]='sensorFromCustomCharts'></app-chart>
+<div class="add-save-btn-area">
+    <button type="button" class="btn save-btn" data-toggle="modal" (click)="myModal.show()">
+        &nbsp;Save
+    </button>
+    <app-custom-chart-modal (sensorClickEvent)='sensorClickEvent($event)'></app-custom-chart-modal>
+</div>
+
+<form>
+    <div bsModal #myModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Save Custom Chart</h4>
+                    <button type="button" class="close" (click)="myModal.hide()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="Name" [(ngModel)]="chartName" name='chartName'>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" data-toggle="modal" (click)='saveCustomChart()' (click)="myModal.hide()"
+                        [disabled]='!chartName'>
+                        Save
+                    </button>
+                    <button type="submit" class="btn btn-secondary" (click)="myModal.hide()" aria-label="Close">
+                        <span aria-hidden="true">Cancel</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
