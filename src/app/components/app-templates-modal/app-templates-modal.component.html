@@ -1,0 +1,115 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" (click)="largeModal.show()">
+    Add sensor
+</button>
+
+<div bsModal #largeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">New Sensor template</h4>
+                <button type="button" class="close" (click)="largeModal.hide()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="modal-input col-lg-6">
+
+                        <div>Name
+                            <input type="text" name="sensor-name" id="sensor-name">
+                        </div>
+
+                        <div>sensor-brand
+                            <input type="text" name="sensor-brand" id="sensor-brand">
+                        </div>
+
+                        <div>Vendor color
+                            <input type="text" name="sensor-color" id="sensor-color">
+                        </div>
+
+                        <div>Deeplink
+                            <input type="text" name="sensor-deeplink" id="sensor-deeplink">
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6">
+                        photo
+                    </div>
+                </div>
+
+                <div>Description</div>
+                <textarea type="text" name="sensor-description" id="sensor-description" rows="3"></textarea>
+
+                <div class="row category-type-area">
+                    <div class="col-lg-6">
+                        <div>Category</div>
+                        <select id="select-category" [(ngModel)]="selectedCategory">
+                            <option>Temperature</option>
+                            <option>CO2</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-6">
+                        <div>Type</div>
+                        <select id="select-category" [(ngModel)]="selectedType">
+
+                            <option value="analog">Analog</option>
+                            <option value="digital">Digital</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row min-max-area">
+                    <div class="col-lg-4">
+                        <label>Min
+                            <input type="text" name="sensor-min" id="sensor-min">
+                        </label>
+                    </div>
+                    <div class="col-lg-4">
+                        <label>Max
+                            <input type="text" name="sensor-min" id="sensor-min">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="selectedCategory && selectedType === 'analog'">
+                    <div class="col-lg-2">
+                        Control points:
+                    </div>
+                    <div class="col-lg-2">
+                        <select id="select-category">
+                            <option selected>mV</option>
+                            <option>CO2</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2">
+                        <select id="select-category">
+                            <option selected>&deg;C</option>
+                            <option>CO2</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="selectedCategory && selectedType === 'digital'">
+                    <div class="col-lg-2">
+                        Units:
+                    </div>
+                    <div class="col-lg-2">
+                        <select id="select-category">
+                            <option selected>&deg;C</option>
+                            <option>CO2</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="largeModal.hide()">Cancel</button>
+                <button type="button" class="btn btn-primary">Ok</button>
+            </div>
+
+        </div>
+    </div>
+</div>
